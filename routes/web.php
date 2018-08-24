@@ -11,6 +11,15 @@
 |
 */
 
+
+Route::group(['prefix'=>'dashboard', 'namespace'=> 'Admin', 'middleware'=>['auth']], function (){
+    Route::get('/', 'DashboardController@dashboard')->name('dashboard.index');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
