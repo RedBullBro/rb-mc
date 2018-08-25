@@ -27,7 +27,11 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.categories.create', [
+            'category'   => [],
+            'categories' => Category::with('children')->where('parent_id', 'id')->get(),
+            'delimiter'  => '',
+        ]);
     }
 
     /**
@@ -38,7 +42,8 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Category::create($request->all());
+        return redirect()->route('dashboard.category.index');
     }
 
     /**
