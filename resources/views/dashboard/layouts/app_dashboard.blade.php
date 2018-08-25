@@ -41,7 +41,7 @@
                             </a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="{{route('dashboard.category.index')}}">Категории</a>
-                                <a class="dropdown-item" href="#">Материалы</a>
+                                <a class="dropdown-item" href="{{route('dashboard.article.index')}}">Материалы</a>
                             </div>
                         </li>
                     </ul>
