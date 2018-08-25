@@ -34,9 +34,16 @@
                     <td>{{$category->title}}</td>
                     <td>{{$category->published}}</td>
                     <td>
-                        <a href="{{route('dashboard.category.edit', ['id' => $category->id])}}">
-                            <i class="fas fa-edit"></i>
-                        </a>
+                        <form class="text-right" action="{{route('dashboard.category.destroy', $category)}}" method="post">
+                            {{csrf_field()}}
+                            <input type="hidden" name="_method" value="DELETE">
+                            <a class="btn btn-default" href="{{route('dashboard.category.edit', $category)}}">
+                                <i class="fas fa-edit">Редактировать</i>
+                            </a>
+                            <button type="submit" class="btn btn-danger">
+                                <i class="far fa-trash-alt">Удалить</i>
+                            </button>
+                        </form>
                     </td>
                 </tr>
             @empty
